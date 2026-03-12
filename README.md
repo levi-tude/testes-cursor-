@@ -1,57 +1,43 @@
-# Jogo da Cobrinha - Morango Edition
+# ODS 7 - Energia Limpa e Acessivel
 
-Um jogo da cobrinha feito em **HTML, CSS e JavaScript puro** (sem bibliotecas), com visual estilizado, placar em tempo real e sistema de recorde salvo no navegador.
+Pagina estatica desenvolvida para trabalho escolar sobre os Objetivos de Desenvolvimento Sustentavel da ONU, com foco na **ODS 7**.
 
-## O que tem no jogo
+## Integrantes
 
-- Cobra com estilo visual (gradientes e cabeca desenhada)
-- Comida em formato de **morango**
-- **Placar** durante a partida
-- **Recorde** persistente com `localStorage`
-- Controles por teclado (setas e WASD)
-- Botao de pausar/continuar
-- Tela de inicio e fim de jogo
+- Caique dos Santos Souza
+- Joao Marcelo Oliveira Barbosa
+- Joao Victor Passos Batista de Oliveira
+- Levi Davi Tude Silva
+- Brenner Gabriel Franca Costa
+- Carlos Vinicius do Vale Fernandes
+- Gabriel Borges Roque Bastos
 
-## Como jogar
+## Tema
 
-1. Abra o `index.html` no navegador.
-2. Clique em **Iniciar / Reiniciar**.
-3. Use as teclas:
-   - **Setas** (↑ ↓ ← →) ou **WASD** para mover
-   - **Espaco** para pausar/continuar
-4. Coma os morangos para crescer e aumentar o placar.
-5. Evite bater nas paredes ou no proprio corpo.
+ODS 7 - Energia Limpa e Acessivel.
 
-## Sistema de placar e recorde
+## Objetivo
 
-- Cada morango comido vale **1 ponto**.
-- O recorde aparece no topo da tela.
-- Quando voce bate o recorde, ele e salvo automaticamente no navegador.
-- Mesmo fechando a aba, o recorde permanece salvo (ate limpar os dados do navegador).
+Explicar de forma simples a importancia do acesso universal a energia limpa, segura e acessivel.
 
-## Estrutura do projeto
+## Problema
 
-- `index.html`: contem HTML + CSS + JavaScript do jogo.
-- `README.md`: documentacao do projeto.
+Ainda existe desinformacao sobre fontes renovaveis e dificuldade de acesso a tecnologias energeticas em algumas regioes.
 
-## Executar localmente
+## Publico-alvo
 
-Como e um projeto estatico, basta abrir o arquivo `index.html`.
+Estudantes, familias, pequenos empreendedores e comunidade local.
 
-Opcionalmente, voce pode usar um servidor local simples.
+## Solucao inicial proposta
 
-Exemplo com Node.js:
+Criar uma pagina informativa estatica com conteudo educativo, imagens, explicacao dos tipos de energia limpa e dicas praticas para o dia a dia.
 
-```bash
-npx serve .
-```
+## Tecnologias
 
-Depois, abra o endereco mostrado no terminal.
+- HTML
+- CSS
+- JavaScript
 
-## Link para jogar
+## Como executar
 
-https://rawcdn.githack.com/levi-tude/testes-cursor-/cursor/jogo-da-cobrinha-estilizado-6030/index.html
-
----
-
-Feito para praticar logica de programacao e manipulacao de canvas no navegador.
+Basta abrir o arquivo `index.html` no navegador.

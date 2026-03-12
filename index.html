@@ -3,586 +3,206 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cobrinha Morango</title>
-  <style>
-    :root {
-      --bg-1: #1f1633;
-      --bg-2: #120f24;
-      --panel: rgba(19, 17, 36, 0.75);
-      --panel-border: rgba(255, 255, 255, 0.1);
-      --text: #f4f4ff;
-      --subtext: #b7b7d8;
-      --accent: #ff5d8f;
-      --accent-2: #ff8fb2;
-      --snake-1: #5dff92;
-      --snake-2: #24d966;
-      --danger: #ff5f5f;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Segoe UI", Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(1200px 800px at 85% -10%, #3f2a67 0%, transparent 55%),
-        radial-gradient(900px 600px at 10% 110%, #312159 0%, transparent 60%),
-        linear-gradient(145deg, var(--bg-1), var(--bg-2));
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
-
-    .game-shell {
-      width: min(94vw, 760px);
-      border-radius: 24px;
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.45);
-      padding: 20px;
-    }
-
-    .topbar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .title-wrap h1 {
-      margin: 0;
-      font-size: clamp(1.2rem, 2vw, 1.6rem);
-      letter-spacing: 0.4px;
-    }
-
-    .title-wrap p {
-      margin: 4px 0 0;
-      color: var(--subtext);
-      font-size: 0.95rem;
-    }
-
-    .scoreboard {
-      display: flex;
-      gap: 10px;
-    }
-
-    .pill {
-      min-width: 112px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
-      padding: 8px 12px;
-      background: rgba(255, 255, 255, 0.05);
-      text-align: center;
-    }
-
-    .pill .label {
-      display: block;
-      color: var(--subtext);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 3px;
-    }
-
-    .pill .value {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #ffffff;
-    }
-
-    .canvas-wrap {
-      position: relative;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: #090b1c;
-    }
-
-    canvas {
-      width: 100%;
-      max-width: 100%;
-      display: block;
-      aspect-ratio: 1;
-      image-rendering: auto;
-    }
-
-    .overlay {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      background: rgba(7, 8, 20, 0.45);
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 180ms ease;
-    }
-
-    .overlay.visible {
-      opacity: 1;
-    }
-
-    .overlay-card {
-      text-align: center;
-      background: rgba(17, 14, 30, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 14px;
-      padding: 16px 20px;
-      max-width: 80%;
-    }
-
-    .overlay-card h2 {
-      margin: 0 0 8px;
-      font-size: 1.15rem;
-      color: #ffffff;
-    }
-
-    .overlay-card p {
-      margin: 0;
-      color: var(--subtext);
-      font-size: 0.92rem;
-      line-height: 1.35;
-    }
-
-    .controls {
-      margin-top: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .actions {
-      display: flex;
-      gap: 8px;
-    }
-
-    button {
-      border: none;
-      color: #ffffff;
-      background: linear-gradient(140deg, var(--accent), var(--accent-2));
-      border-radius: 10px;
-      font-weight: 700;
-      padding: 10px 14px;
-      cursor: pointer;
-      transition: transform 120ms ease, filter 120ms ease;
-    }
-
-    button.secondary {
-      background: linear-gradient(140deg, #5f75ff, #7f97ff);
-    }
-
-    button:hover {
-      filter: brightness(1.08);
-      transform: translateY(-1px);
-    }
-
-    .hint {
-      color: var(--subtext);
-      font-size: 0.9rem;
-      line-height: 1.35;
-    }
-
-    .hint strong {
-      color: #ffffff;
-    }
-  </style>
+  <title>ODS 7 - Energia Limpa e Acessivel</title>
+  <meta
+    name="description"
+    content="Pagina estatica educativa sobre a ODS 7 da ONU: Energia Limpa e Acessivel."
+  />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <main class="game-shell">
-    <header class="topbar">
-      <div class="title-wrap">
-        <h1>Jogo da Cobrinha - Morango Edition</h1>
-        <p>Coma morangos, cresca e tente bater seu recorde.</p>
-      </div>
-      <div class="scoreboard">
-        <div class="pill">
-          <span class="label">Placar</span>
-          <span class="value" id="score">0</span>
-        </div>
-        <div class="pill">
-          <span class="label">Recorde</span>
-          <span class="value" id="high-score">0</span>
-        </div>
-      </div>
-    </header>
+  <a class="skip-link" href="#conteudo">Pular para o conteudo</a>
 
-    <section class="canvas-wrap">
-      <canvas id="game" width="600" height="600" aria-label="Area do jogo da cobrinha"></canvas>
-      <div class="overlay visible" id="overlay">
-        <div class="overlay-card">
-          <h2 id="overlay-title">Pronto para jogar?</h2>
-          <p id="overlay-text">Pressione "Iniciar / Reiniciar" para comecar.</p>
+  <header class="site-header" id="topo">
+    <div class="container nav-wrap">
+      <a class="brand" href="#topo">
+        <span class="brand-badge">ODS 7</span>
+        <span class="brand-text">Energia Limpa e Acessivel</span>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-controls="site-nav" aria-expanded="false">
+        <span class="sr-only">Abrir menu</span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Menu principal">
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#problema">Problema</a></li>
+          <li><a href="#publico">Publico-alvo</a></li>
+          <li><a href="#solucao">Solucao</a></li>
+          <li><a href="#energias">Energias</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#integrantes">Integrantes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero reveal">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Trabalho Escolar - ODS da ONU</p>
+          <h1>ODS 7: Energia Limpa e Acessivel para todos</h1>
+          <p class="hero-text">
+            Nosso grupo desenvolveu uma pagina informativa para explicar de forma simples o que e a ODS 7,
+            por que ela importa e como cada pessoa pode colaborar com um futuro energetico mais justo e sustentavel.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#sobre">Conhecer o tema</a>
+            <a class="btn btn-outline" href="#integrantes">Ver integrantes</a>
+          </div>
+        </div>
+        <figure class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80"
+            alt="Painel solar com turbinas eolicas ao fundo"
+          />
+          <figcaption>Energia renovavel ajuda a reduzir impactos ambientais.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section reveal" id="sobre">
+      <div class="container">
+        <h2>Tema e objetivo da ODS 7</h2>
+        <div class="cards two">
+          <article class="card">
+            <h3>Tema</h3>
+            <p><strong>ODS 7 - Energia Limpa e Acessivel.</strong></p>
+            <p>
+              A ODS 7 busca garantir que toda a populacao tenha acesso a energia moderna, segura e com menor
+              impacto ambiental.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Objetivo</h3>
+            <p>
+              Ampliar o acesso a energia limpa, confiavel e acessivel para todos, com incentivo a fontes
+              renovaveis e uso eficiente da energia.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
-    <footer class="controls">
-      <div class="actions">
-        <button id="restart-btn" type="button">Iniciar / Reiniciar</button>
-        <button id="pause-btn" type="button" class="secondary">Pausar</button>
+    <section class="section section-alt reveal" id="problema">
+      <div class="container">
+        <h2>O problema</h2>
+        <p>
+          Muitas pessoas ainda nao conhecem bem as vantagens das energias renovaveis. Em varias regioes, o custo
+          inicial de tecnologias limpas e a falta de informacao dificultam a adocao dessas alternativas.
+        </p>
       </div>
-      <div class="hint">
-        <strong>Controles:</strong> setas ou WASD.
+    </section>
+
+    <section class="section reveal" id="publico">
+      <div class="container">
+        <h2>Publico-alvo</h2>
+        <div class="cards three">
+          <article class="card"><h3>Estudantes</h3><p>Para formar consciencia ambiental desde cedo.</p></article>
+          <article class="card"><h3>Familias</h3><p>Para incentivar economia de energia no dia a dia.</p></article>
+          <article class="card"><h3>Comunidade local</h3><p>Para apoiar praticas sustentaveis no bairro e na escola.</p></article>
+        </div>
       </div>
-    </footer>
+    </section>
+
+    <section class="section section-alt reveal" id="solucao">
+      <div class="container">
+        <h2>Detalhamento da solucao inicial proposta</h2>
+        <p>
+          Nossa solucao e uma pagina web estatica, com linguagem simples e visual atrativo, para explicar tipos de
+          energia limpa, beneficios, desafios e acoes praticas que qualquer pessoa pode adotar.
+        </p>
+        <ul class="check-list">
+          <li>Conteudo educativo com explicacoes diretas.</li>
+          <li>Imagens e exemplos para facilitar o entendimento.</li>
+          <li>Organizacao por secoes para leitura rapida.</li>
+          <li>Sugestoes de atitudes sustentaveis para escola e casa.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section reveal" id="energias">
+      <div class="container">
+        <h2>Tipos de energia limpa</h2>
+        <div class="cards energy-grid">
+          <article class="card"><h3>Solar</h3><p>Gerada pela luz do sol com paineis fotovoltaicos.</p></article>
+          <article class="card"><h3>Eolica</h3><p>Produzida pela forca dos ventos com turbinas.</p></article>
+          <article class="card"><h3>Hidreletrica</h3><p>Obtida pelo movimento da agua em usinas.</p></article>
+          <article class="card"><h3>Biomassa</h3><p>Energia criada a partir de residuos organicos.</p></article>
+          <article class="card"><h3>Geotermica</h3><p>Usa o calor interno da Terra para produzir energia.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt reveal" id="galeria">
+      <div class="container">
+        <h2>Galeria informativa</h2>
+        <div class="gallery">
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=900&q=80"
+              alt="Campo com varias turbinas eolicas"
+            />
+            <figcaption>Parque eolico para producao de energia.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=900&q=80"
+              alt="Casa com instalacao de paineis solares no telhado"
+            />
+            <figcaption>Paineis solares instalados em residencias.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80"
+              alt="Barragem representando geracao de energia pela agua"
+            />
+            <figcaption>Energia hidreletrica em grande escala.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="acoes">
+      <div class="container">
+        <h2>Como contribuir no dia a dia</h2>
+        <ol class="tips">
+          <li>Apagar luzes e desligar aparelhos quando nao estiver usando.</li>
+          <li>Priorizar lampadas LED e equipamentos mais eficientes.</li>
+          <li>Evitar desperdicio de energia em casa e na escola.</li>
+          <li>Compartilhar informacoes sobre energias renovaveis.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-alt reveal" id="integrantes">
+      <div class="container">
+        <h2>Integrantes do grupo</h2>
+        <ul class="members">
+          <li>Caique dos Santos Souza</li>
+          <li>Joao Marcelo Oliveira Barbosa</li>
+          <li>Joao Victor Passos Batista de Oliveira</li>
+          <li>Levi Davi Tude Silva</li>
+          <li>Brenner Gabriel Franca Costa</li>
+          <li>Carlos Vinicius do Vale Fernandes</li>
+          <li>Gabriel Borges Roque Bastos</li>
+        </ul>
+      </div>
+    </section>
   </main>
 
-  <script>
-    const canvas = document.getElementById("game");
-    const ctx = canvas.getContext("2d");
+  <footer class="site-footer">
+    <div class="container">
+      <p>Projeto escolar - ODS 7 | Pagina estatica em HTML, CSS e JavaScript.</p>
+    </div>
+  </footer>
 
-    const scoreEl = document.getElementById("score");
-    const highScoreEl = document.getElementById("high-score");
-    const overlayEl = document.getElementById("overlay");
-    const overlayTitleEl = document.getElementById("overlay-title");
-    const overlayTextEl = document.getElementById("overlay-text");
-    const restartBtn = document.getElementById("restart-btn");
-    const pauseBtn = document.getElementById("pause-btn");
-
-    const STORAGE_KEY = "snake_strawberry_best_score";
-    const GRID_COUNT = 24;
-    const CELL = canvas.width / GRID_COUNT;
-    const STEP_MS = 105;
-
-    const DIRECTIONS = {
-      ArrowUp: { x: 0, y: -1, name: "up" },
-      ArrowDown: { x: 0, y: 1, name: "down" },
-      ArrowLeft: { x: -1, y: 0, name: "left" },
-      ArrowRight: { x: 1, y: 0, name: "right" },
-      w: { x: 0, y: -1, name: "up" },
-      s: { x: 0, y: 1, name: "down" },
-      a: { x: -1, y: 0, name: "left" },
-      d: { x: 1, y: 0, name: "right" }
-    };
-
-    let gameOver = false;
-    let running = false;
-    let paused = false;
-    let score = 0;
-    let highScore = Number(localStorage.getItem(STORAGE_KEY) || 0);
-    let snake = [];
-    let direction = { x: 1, y: 0, name: "right" };
-    let nextDirection = direction;
-    let strawberry = { x: 0, y: 0 };
-    let lastStep = 0;
-
-    highScoreEl.textContent = highScore;
-
-    function initGameState() {
-      const center = Math.floor(GRID_COUNT / 2);
-      snake = [
-        { x: center - 3, y: center },
-        { x: center - 2, y: center },
-        { x: center - 1, y: center },
-        { x: center, y: center }
-      ];
-      direction = { x: 1, y: 0, name: "right" };
-      nextDirection = direction;
-      strawberry = spawnStrawberry();
-      score = 0;
-      gameOver = false;
-      paused = false;
-      scoreEl.textContent = score;
-      pauseBtn.textContent = "Pausar";
-    }
-
-    function startGame() {
-      initGameState();
-      running = true;
-      hideOverlay();
-      lastStep = performance.now();
-      draw();
-      requestAnimationFrame(loop);
-    }
-
-    function loop(timestamp) {
-      if (!running) return;
-
-      if (!paused && !gameOver) {
-        if (timestamp - lastStep >= STEP_MS) {
-          update();
-          lastStep = timestamp;
-        }
-      }
-
-      draw();
-      requestAnimationFrame(loop);
-    }
-
-    function isOpposite(a, b) {
-      return a.x + b.x === 0 && a.y + b.y === 0;
-    }
-
-    function update() {
-      if (!isOpposite(direction, nextDirection)) {
-        direction = nextDirection;
-      }
-
-      const head = snake[snake.length - 1];
-      const newHead = { x: head.x + direction.x, y: head.y + direction.y };
-
-      const hitWall =
-        newHead.x < 0 ||
-        newHead.x >= GRID_COUNT ||
-        newHead.y < 0 ||
-        newHead.y >= GRID_COUNT;
-
-      const hitSelf = snake.some((segment) => segment.x === newHead.x && segment.y === newHead.y);
-
-      if (hitWall || hitSelf) {
-        gameOver = true;
-        running = false;
-        showOverlay(
-          "Fim de jogo",
-          "Voce fez " + score + " pontos. Pressione Iniciar / Reiniciar para tentar de novo."
-        );
-        return;
-      }
-
-      snake.push(newHead);
-
-      if (newHead.x === strawberry.x && newHead.y === strawberry.y) {
-        score += 1;
-        scoreEl.textContent = score;
-        if (score > highScore) {
-          highScore = score;
-          highScoreEl.textContent = highScore;
-          localStorage.setItem(STORAGE_KEY, String(highScore));
-        }
-        strawberry = spawnStrawberry();
-      } else {
-        snake.shift();
-      }
-    }
-
-    function spawnStrawberry() {
-      let candidate = { x: 0, y: 0 };
-      do {
-        candidate = {
-          x: Math.floor(Math.random() * GRID_COUNT),
-          y: Math.floor(Math.random() * GRID_COUNT)
-        };
-      } while (snake.some((segment) => segment.x === candidate.x && segment.y === candidate.y));
-      return {
-        x: candidate.x,
-        y: candidate.y,
-        seeds: createStrawberrySeeds()
-      };
-    }
-
-    function createStrawberrySeeds() {
-      const seeds = [];
-      for (let i = 0; i < 8; i += 1) {
-        seeds.push({
-          x: (Math.random() - 0.5) * 10,
-          y: (Math.random() - 0.1) * 10,
-          rotation: Math.random() * Math.PI
-        });
-      }
-      return seeds;
-    }
-
-    function drawBackground() {
-      const bg = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-      bg.addColorStop(0, "#0f1022");
-      bg.addColorStop(1, "#1b1f3c");
-      ctx.fillStyle = bg;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.strokeStyle = "rgba(255,255,255,0.06)";
-      ctx.lineWidth = 1;
-      for (let i = 1; i < GRID_COUNT; i += 1) {
-        const p = i * CELL;
-        ctx.beginPath();
-        ctx.moveTo(p, 0);
-        ctx.lineTo(p, canvas.height);
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.moveTo(0, p);
-        ctx.lineTo(canvas.width, p);
-        ctx.stroke();
-      }
-    }
-
-    function roundedRect(x, y, w, h, r) {
-      const radius = Math.min(r, w / 2, h / 2);
-      ctx.beginPath();
-      ctx.moveTo(x + radius, y);
-      ctx.arcTo(x + w, y, x + w, y + h, radius);
-      ctx.arcTo(x + w, y + h, x, y + h, radius);
-      ctx.arcTo(x, y + h, x, y, radius);
-      ctx.arcTo(x, y, x + w, y, radius);
-      ctx.closePath();
-    }
-
-    function drawSnake() {
-      snake.forEach((segment, index) => {
-        const x = segment.x * CELL;
-        const y = segment.y * CELL;
-        const size = CELL - 5;
-        const pad = (CELL - size) / 2;
-
-        const ratio = snake.length <= 1 ? 1 : index / (snake.length - 1);
-        const hue = 145 - ratio * 25;
-        const light = 62 - ratio * 16;
-
-        const g = ctx.createLinearGradient(x, y, x + CELL, y + CELL);
-        g.addColorStop(0, "hsl(" + hue + ", 95%, " + light + "%)");
-        g.addColorStop(1, "hsl(" + (hue - 12) + ", 90%, " + (light - 12) + "%)");
-
-        ctx.fillStyle = g;
-        ctx.shadowColor = "rgba(60, 255, 140, 0.35)";
-        ctx.shadowBlur = 8;
-        roundedRect(x + pad, y + pad, size, size, 9);
-        ctx.fill();
-        ctx.shadowBlur = 0;
-      });
-
-      drawSnakeHead();
-    }
-
-    function drawSnakeHead() {
-      const head = snake[snake.length - 1];
-      const x = head.x * CELL;
-      const y = head.y * CELL;
-
-      const size = CELL - 3;
-      const pad = (CELL - size) / 2;
-
-      const g = ctx.createLinearGradient(x, y, x + CELL, y + CELL);
-      g.addColorStop(0, "#78ffad");
-      g.addColorStop(1, "#33db72");
-      ctx.fillStyle = g;
-      roundedRect(x + pad, y + pad, size, size, 10);
-      ctx.fill();
-
-      let eyeOffsetA = { x: 7, y: 7 };
-      let eyeOffsetB = { x: 15, y: 7 };
-      if (direction.name === "left") {
-        eyeOffsetA = { x: 6, y: 8 };
-        eyeOffsetB = { x: 6, y: 16 };
-      } else if (direction.name === "right") {
-        eyeOffsetA = { x: 18, y: 8 };
-        eyeOffsetB = { x: 18, y: 16 };
-      } else if (direction.name === "down") {
-        eyeOffsetA = { x: 7, y: 18 };
-        eyeOffsetB = { x: 15, y: 18 };
-      }
-
-      ctx.fillStyle = "#ffffff";
-      ctx.beginPath();
-      ctx.arc(x + eyeOffsetA.x, y + eyeOffsetA.y, 2.2, 0, Math.PI * 2);
-      ctx.arc(x + eyeOffsetB.x, y + eyeOffsetB.y, 2.2, 0, Math.PI * 2);
-      ctx.fill();
-
-      ctx.fillStyle = "#1f2238";
-      ctx.beginPath();
-      ctx.arc(x + eyeOffsetA.x + 0.2, y + eyeOffsetA.y + 0.2, 1.1, 0, Math.PI * 2);
-      ctx.arc(x + eyeOffsetB.x + 0.2, y + eyeOffsetB.y + 0.2, 1.1, 0, Math.PI * 2);
-      ctx.fill();
-    }
-
-    function drawStrawberry() {
-      const cx = strawberry.x * CELL + CELL / 2;
-      const cy = strawberry.y * CELL + CELL / 2 + 1;
-      const bodyRadius = CELL * 0.35;
-
-      ctx.save();
-      ctx.translate(cx, cy);
-
-      const berry = ctx.createLinearGradient(0, -bodyRadius, 0, bodyRadius + 6);
-      berry.addColorStop(0, "#ff799f");
-      berry.addColorStop(1, "#df103f");
-      ctx.fillStyle = berry;
-
-      ctx.beginPath();
-      ctx.moveTo(0, -bodyRadius);
-      ctx.quadraticCurveTo(bodyRadius + 4, -bodyRadius + 2, bodyRadius, bodyRadius * 0.35);
-      ctx.quadraticCurveTo(bodyRadius - 2, bodyRadius + 6, 0, bodyRadius + 9);
-      ctx.quadraticCurveTo(-bodyRadius + 2, bodyRadius + 6, -bodyRadius, bodyRadius * 0.35);
-      ctx.quadraticCurveTo(-bodyRadius - 4, -bodyRadius + 2, 0, -bodyRadius);
-      ctx.closePath();
-      ctx.fill();
-
-      ctx.fillStyle = "#6be57d";
-      for (let i = 0; i < 5; i += 1) {
-        const ang = -Math.PI / 2 + i * (Math.PI / 4);
-        ctx.beginPath();
-        ctx.moveTo(0, -bodyRadius + 1);
-        ctx.lineTo(Math.cos(ang) * 7, -bodyRadius - 5 + Math.sin(ang) * 7);
-        ctx.lineTo(Math.cos(ang + 0.22) * 4, -bodyRadius + Math.sin(ang + 0.22) * 3);
-        ctx.closePath();
-        ctx.fill();
-      }
-
-      ctx.fillStyle = "rgba(255, 234, 126, 0.9)";
-      for (const seed of strawberry.seeds) {
-        ctx.beginPath();
-        ctx.ellipse(seed.x, seed.y, 1.1, 0.8, seed.rotation, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      ctx.restore();
-    }
-
-    function draw() {
-      drawBackground();
-      drawStrawberry();
-      drawSnake();
-    }
-
-    function showOverlay(title, text) {
-      overlayTitleEl.textContent = title;
-      overlayTextEl.textContent = text;
-      overlayEl.classList.add("visible");
-    }
-
-    function hideOverlay() {
-      overlayEl.classList.remove("visible");
-    }
-
-    function togglePause() {
-      if (!running) return;
-      if (gameOver) return;
-      paused = !paused;
-      pauseBtn.textContent = paused ? "Continuar" : "Pausar";
-      if (paused) {
-        showOverlay("Pausado", "Clique em Continuar para voltar ao jogo.");
-      } else {
-        hideOverlay();
-      }
-    }
-
-    window.addEventListener("keydown", (event) => {
-      const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
-      const dir = DIRECTIONS[key];
-      if (dir) {
-        nextDirection = dir;
-        event.preventDefault();
-      }
-      if (event.key === " " && running && !gameOver) {
-        togglePause();
-        event.preventDefault();
-      }
-      if (event.key === "Enter" && !running) {
-        startGame();
-      }
-    });
-
-    restartBtn.addEventListener("click", startGame);
-    pauseBtn.addEventListener("click", togglePause);
-
-    initGameState();
-    draw();
-  </script>
+  <button id="to-top" class="to-top" aria-label="Voltar ao topo">↑</button>
 </body>
 </html>
