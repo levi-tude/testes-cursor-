@@ -1,6 +1,6 @@
-# ODS 7 - Energia Limpa e Acessivel
+# Trabalho ODS HTML
 
-Pagina estatica desenvolvida para trabalho escolar sobre os Objetivos de Desenvolvimento Sustentavel da ONU, com foco na **ODS 7**.
+Pagina estatica desenvolvida para trabalho escolar sobre os Objetivos de Desenvolvimento Sustentavel da ONU, com foco na **ODS 7 - Energia Limpa e Acessivel**.
 
 ## Integrantes
 
