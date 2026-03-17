@@ -3,7 +3,8 @@ const siteNav = document.getElementById("site-nav");
 const navLinks = document.querySelectorAll('.site-nav a[href^="#"]');
 const toTopButton = document.getElementById("to-top");
 const revealItems = document.querySelectorAll(".reveal");
-const energyAccordions = document.querySelectorAll(".energy-accordion");
+const energyTabs = Array.from(document.querySelectorAll(".energy-tab"));
+const energyPanels = Array.from(document.querySelectorAll(".energy-panel"));
 
 if (navToggle && siteNav) {
   navToggle.addEventListener("click", () => {
@@ -62,12 +63,50 @@ const observer = new IntersectionObserver(
 
 revealItems.forEach((item) => observer.observe(item));
 
-energyAccordions.forEach((accordion) => {
-  accordion.addEventListener("toggle", () => {
-    if (!accordion.open) return;
-    energyAccordions.forEach((otherAccordion) => {
-      if (otherAccordion === accordion) return;
-      otherAccordion.open = false;
+const setActiveEnergy = (target) => {
+  energyTabs.forEach((tab) => {
+    const isActive = tab.dataset.energyTarget === target;
+    tab.classList.toggle("is-active", isActive);
+    tab.setAttribute("aria-selected", String(isActive));
+    tab.tabIndex = isActive ? 0 : -1;
+  });
+
+  energyPanels.forEach((panel) => {
+    const isActive = panel.dataset.energyPanel === target;
+    panel.classList.toggle("is-active", isActive);
+    panel.hidden = !isActive;
+  });
+};
+
+if (energyTabs.length && energyPanels.length) {
+  const initialActiveTab = energyTabs.find((tab) => tab.classList.contains("is-active")) ?? energyTabs[0];
+  if (initialActiveTab?.dataset.energyTarget) {
+    setActiveEnergy(initialActiveTab.dataset.energyTarget);
+  }
+
+  energyTabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => {
+      const target = tab.dataset.energyTarget;
+      if (!target) return;
+      setActiveEnergy(target);
+    });
+
+    tab.addEventListener("keydown", (event) => {
+      const tabCount = energyTabs.length;
+      if (!tabCount) return;
+
+      let nextIndex = index;
+      if (event.key === "ArrowRight") nextIndex = (index + 1) % tabCount;
+      if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabCount) % tabCount;
+      if (event.key === "Home") nextIndex = 0;
+      if (event.key === "End") nextIndex = tabCount - 1;
+      if (nextIndex === index) return;
+
+      event.preventDefault();
+      energyTabs[nextIndex].focus();
+      const target = energyTabs[nextIndex].dataset.energyTarget;
+      if (!target) return;
+      setActiveEnergy(target);
     });
   });
-});
+}

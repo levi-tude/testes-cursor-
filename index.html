@@ -131,186 +131,269 @@
       <div class="container">
         <h2>Tipos de energia limpa</h2>
         <p class="section-intro">
-          Clique no nome de cada energia para abrir uma explicacao mais completa, com exemplos, vantagens e fotos.
+          Clique em uma energia para ver explicacao detalhada, pontos importantes e fotos demonstrativas.
         </p>
 
-        <div class="energy-accordion-list">
-          <details class="energy-accordion card">
-            <summary>
-              <span class="energy-summary-text">
-                <strong>Solar</strong>
-                <span>Gerada pela luz do sol com paineis fotovoltaicos.</span>
-              </span>
-            </summary>
-            <div class="energy-content">
-              <p>
-                A energia solar transforma a radiacao do sol em eletricidade. Ela pode ser usada em casas, escolas,
-                empresas e ate em pequenas propriedades rurais. E uma opcao com baixa emissao de poluentes e ajuda a
-                reduzir o gasto de energia ao longo do tempo.
-              </p>
-              <p>
-                Mesmo com custo inicial mais alto, os paineis duram muitos anos e exigem pouca manutencao. Em regioes
-                com boa incidencia solar, o retorno do investimento costuma ser positivo.
-              </p>
-              <div class="energy-gallery">
-                <figure>
-                  <img
-                    src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=900&q=80"
-                    alt="Paineis solares instalados em area aberta"
-                  />
-                  <figcaption>Usina solar em area de grande incidencia de luz.</figcaption>
-                </figure>
-                <figure>
-                  <img
-                    src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=900&q=80"
-                    alt="Casa com paineis solares no telhado"
-                  />
-                  <figcaption>Energia solar aplicada no dia a dia das residencias.</figcaption>
-                </figure>
-              </div>
-            </div>
-          </details>
+        <div class="cards energy-grid energy-tabs" role="tablist" aria-label="Tipos de energia limpa">
+          <button
+            class="energy-tab card is-active"
+            id="tab-solar"
+            role="tab"
+            aria-selected="true"
+            aria-controls="painel-solar"
+            data-energy-target="solar"
+            type="button"
+          >
+            <span class="energy-tab-title">Solar</span>
+            <span class="energy-tab-desc">Gerada pela luz do sol com paineis fotovoltaicos.</span>
+          </button>
+          <button
+            class="energy-tab card"
+            id="tab-eolica"
+            role="tab"
+            aria-selected="false"
+            aria-controls="painel-eolica"
+            data-energy-target="eolica"
+            type="button"
+          >
+            <span class="energy-tab-title">Eolica</span>
+            <span class="energy-tab-desc">Produzida pela forca dos ventos com turbinas.</span>
+          </button>
+          <button
+            class="energy-tab card"
+            id="tab-hidreletrica"
+            role="tab"
+            aria-selected="false"
+            aria-controls="painel-hidreletrica"
+            data-energy-target="hidreletrica"
+            type="button"
+          >
+            <span class="energy-tab-title">Hidreletrica</span>
+            <span class="energy-tab-desc">Obtida pelo movimento da agua em usinas.</span>
+          </button>
+          <button
+            class="energy-tab card"
+            id="tab-biomassa"
+            role="tab"
+            aria-selected="false"
+            aria-controls="painel-biomassa"
+            data-energy-target="biomassa"
+            type="button"
+          >
+            <span class="energy-tab-title">Biomassa</span>
+            <span class="energy-tab-desc">Gerada com residuos organicos e materia vegetal.</span>
+          </button>
+          <button
+            class="energy-tab card"
+            id="tab-geotermica"
+            role="tab"
+            aria-selected="false"
+            aria-controls="painel-geotermica"
+            data-energy-target="geotermica"
+            type="button"
+          >
+            <span class="energy-tab-title">Geotermica</span>
+            <span class="energy-tab-desc">Usa o calor interno da Terra para gerar energia.</span>
+          </button>
+        </div>
 
-          <details class="energy-accordion card">
-            <summary>
-              <span class="energy-summary-text">
-                <strong>Eolica</strong>
-                <span>Produzida pela forca dos ventos com turbinas.</span>
-              </span>
-            </summary>
-            <div class="energy-content">
-              <p>
-                A energia eolica e gerada quando o vento movimenta as pas das turbinas, produzindo eletricidade. E uma
-                fonte renovavel muito importante para diversificar a matriz energetica e reduzir dependencia de
-                combustiveis fosseis.
-              </p>
-              <p>
-                Areas litoraneas e pontos elevados costumam ser favoraveis para parques eolicos. O planejamento e
-                essencial para evitar impactos sobre fauna e comunidades locais.
-              </p>
-              <div class="energy-gallery">
-                <figure>
-                  <img
-                    src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=900&q=80"
-                    alt="Parque com varias turbinas eolicas"
-                  />
-                  <figcaption>Parque eolico em grande escala.</figcaption>
-                </figure>
-                <figure>
-                  <img
-                    src="https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&w=900&q=80"
-                    alt="Turbinas eolicas em campo aberto"
-                  />
-                  <figcaption>Vento transformado em energia eletrica.</figcaption>
-                </figure>
-              </div>
+        <div class="energy-panels card">
+          <article
+            class="energy-panel is-active"
+            id="painel-solar"
+            role="tabpanel"
+            aria-labelledby="tab-solar"
+            data-energy-panel="solar"
+          >
+            <h3>Energia solar</h3>
+            <p>
+              A energia solar transforma a luz do sol em eletricidade. Ela pode ser usada em casas, escolas, empresas
+              e propriedades rurais, com baixa emissao de poluentes.
+            </p>
+            <p>
+              Mesmo com investimento inicial, os paineis costumam durar muitos anos e podem diminuir a conta de luz ao
+              longo do tempo.
+            </p>
+            <ul class="energy-points">
+              <li>Fonte renovavel e limpa.</li>
+              <li>Boa opcao para telhados de casas e escolas.</li>
+              <li>Funciona melhor em locais com boa incidencia solar.</li>
+            </ul>
+            <div class="energy-gallery">
+              <figure>
+                <img
+                  src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=900&q=80"
+                  alt="Usina com paineis solares em grande quantidade"
+                />
+                <figcaption>Usina solar com fileiras de paineis fotovoltaicos.</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=900&q=80"
+                  alt="Casa com paineis solares instalados no telhado"
+                />
+                <figcaption>Exemplo de energia solar aplicada em residencia.</figcaption>
+              </figure>
             </div>
-          </details>
+          </article>
 
-          <details class="energy-accordion card">
-            <summary>
-              <span class="energy-summary-text">
-                <strong>Hidreletrica</strong>
-                <span>Obtida pelo movimento da agua em usinas.</span>
-              </span>
-            </summary>
-            <div class="energy-content">
-              <p>
-                A energia hidreletrica aproveita a forca da agua para girar turbinas e gerar eletricidade. E uma das
-                principais fontes do Brasil, com grande capacidade de abastecimento para cidades e industrias.
-              </p>
-              <p>
-                Apesar de ser renovavel, projetos hidreletricos precisam de estudos ambientais, pois barragens podem
-                alterar ecossistemas e impactar comunidades proximas.
-              </p>
-              <div class="energy-gallery">
-                <figure>
-                  <img
-                    src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80"
-                    alt="Barragem de usina hidreletrica"
-                  />
-                  <figcaption>Barragem usada para geracao de energia.</figcaption>
-                </figure>
-                <figure>
-                  <img
-                    src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=80"
-                    alt="Fluxo de agua em usina hidreletrica"
-                  />
-                  <figcaption>Movimento da agua impulsiona turbinas.</figcaption>
-                </figure>
-              </div>
+          <article
+            class="energy-panel"
+            id="painel-eolica"
+            role="tabpanel"
+            aria-labelledby="tab-eolica"
+            data-energy-panel="eolica"
+            hidden
+          >
+            <h3>Energia eolica</h3>
+            <p>
+              A energia eolica e produzida quando o vento gira as pas das turbinas. Esse movimento aciona geradores e
+              produz eletricidade para cidades e industrias.
+            </p>
+            <p>
+              E uma fonte renovavel importante para reduzir o uso de combustiveis fosseis e diminuir a poluicao.
+            </p>
+            <ul class="energy-points">
+              <li>Aproveita um recurso natural abundante: o vento.</li>
+              <li>Tem baixa emissao de gases de efeito estufa.</li>
+              <li>Requer planejamento para localizacao dos parques.</li>
+            </ul>
+            <div class="energy-gallery">
+              <figure>
+                <img
+                  src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=900&q=80"
+                  alt="Parque eolico com varias turbinas em area aberta"
+                />
+                <figcaption>Parque eolico em operacao.</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&w=900&q=80"
+                  alt="Turbinas eolicas vistas de perto em campo aberto"
+                />
+                <figcaption>Turbinas transformando vento em energia eletrica.</figcaption>
+              </figure>
             </div>
-          </details>
+          </article>
 
-          <details class="energy-accordion card">
-            <summary>
-              <span class="energy-summary-text">
-                <strong>Biomassa</strong>
-                <span>Energia criada a partir de residuos organicos.</span>
-              </span>
-            </summary>
-            <div class="energy-content">
-              <p>
-                A biomassa utiliza materiais organicos como restos agricolas, madeira, cascas e residuos urbanos para
-                gerar calor, eletricidade ou biocombustiveis. Isso ajuda a reduzir o descarte inadequado de residuos.
-              </p>
-              <p>
-                Quando bem planejada, a biomassa pode fortalecer a economia local e produzir energia proxima ao local
-                de consumo. O controle de emissoes e fundamental para garantir sustentabilidade.
-              </p>
-              <div class="energy-gallery">
-                <figure>
-                  <img
-                    src="https://images.unsplash.com/photo-1624397640148-949b1732bb0a?auto=format&fit=crop&w=900&q=80"
-                    alt="Pellets de biomassa para geracao de energia"
-                  />
-                  <figcaption>Residuos compactados podem virar combustivel limpo.</figcaption>
-                </figure>
-                <figure>
-                  <img
-                    src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=900&q=80"
-                    alt="Residuos agricolas utilizados para biomassa"
-                  />
-                  <figcaption>Aproveitamento de residuos agricolas na geracao energetica.</figcaption>
-                </figure>
-              </div>
+          <article
+            class="energy-panel"
+            id="painel-hidreletrica"
+            role="tabpanel"
+            aria-labelledby="tab-hidreletrica"
+            data-energy-panel="hidreletrica"
+            hidden
+          >
+            <h3>Energia hidreletrica</h3>
+            <p>
+              A energia hidreletrica usa a forca da agua para girar turbinas e gerar eletricidade. No Brasil, essa
+              fonte tem papel importante no abastecimento de energia.
+            </p>
+            <p>
+              Apesar de renovavel, obras hidreletricas precisam de estudos ambientais para reduzir impactos em rios,
+              fauna e comunidades.
+            </p>
+            <ul class="energy-points">
+              <li>Grande capacidade de geracao para o sistema eletrico.</li>
+              <li>Aproveita o fluxo de rios e reservatorios.</li>
+              <li>Exige monitoramento ambiental constante.</li>
+            </ul>
+            <div class="energy-gallery">
+              <figure>
+                <img
+                  src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80"
+                  alt="Barragem de usina hidreletrica com grande volume de agua"
+                />
+                <figcaption>Barragem hidreletrica para geracao de energia.</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=80"
+                  alt="Fluxo de agua de usina hidreletrica em funcionamento"
+                />
+                <figcaption>Forca da agua movimentando turbinas.</figcaption>
+              </figure>
             </div>
-          </details>
+          </article>
 
-          <details class="energy-accordion card">
-            <summary>
-              <span class="energy-summary-text">
-                <strong>Geotermica</strong>
-                <span>Usa o calor interno da Terra para produzir energia.</span>
-              </span>
-            </summary>
-            <div class="energy-content">
-              <p>
-                A energia geotermica utiliza o calor natural do subsolo para aquecimento e producao de eletricidade.
-                Ela funciona com alta estabilidade e pode gerar energia continuamente em regioes favoraveis.
-              </p>
-              <p>
-                E uma fonte com baixa emissao de carbono, mas exige investimento tecnico e local apropriado. Ainda e
-                pouco usada no Brasil, porem tem potencial em estudos futuros.
-              </p>
-              <div class="energy-gallery">
-                <figure>
-                  <img
-                    src="https://images.unsplash.com/photo-1562602833-0f4ab2fc46e1?auto=format&fit=crop&w=900&q=80"
-                    alt="Area vulcanica representando calor geotermico"
-                  />
-                  <figcaption>Fontes naturais de calor podem gerar energia.</figcaption>
-                </figure>
-                <figure>
-                  <img
-                    src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=900&q=80"
-                    alt="Estacao industrial para aproveitamento de calor subterraneo"
-                  />
-                  <figcaption>Infraestrutura para captacao de energia geotermica.</figcaption>
-                </figure>
-              </div>
+          <article
+            class="energy-panel"
+            id="painel-biomassa"
+            role="tabpanel"
+            aria-labelledby="tab-biomassa"
+            data-energy-panel="biomassa"
+            hidden
+          >
+            <h3>Energia de biomassa</h3>
+            <p>
+              A biomassa usa residuos organicos, como restos de madeira, bagaco de cana e residuos agricolas, para
+              produzir calor, eletricidade ou biocombustiveis.
+            </p>
+            <p>
+              Ela ajuda a aproveitar materiais que seriam descartados, podendo gerar energia perto do local de
+              producao desses residuos.
+            </p>
+            <ul class="energy-points">
+              <li>Transforma residuos em fonte energetica util.</li>
+              <li>Pode fortalecer economia local e rural.</li>
+              <li>Precisa de controle de emissao e manejo adequado.</li>
+            </ul>
+            <div class="energy-gallery">
+              <figure>
+                <img
+                  src="https://images.unsplash.com/photo-1624397640148-949b1732bb0a?auto=format&fit=crop&w=900&q=80"
+                  alt="Pellets de biomassa usados como combustivel energetico"
+                />
+                <figcaption>Pellets: biomassa compactada para gerar energia.</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=900&q=80"
+                  alt="Residuos vegetais e agricolas para aproveitamento energetico"
+                />
+                <figcaption>Residuos agricolas podem virar energia renovavel.</figcaption>
+              </figure>
             </div>
-          </details>
+          </article>
+
+          <article
+            class="energy-panel"
+            id="painel-geotermica"
+            role="tabpanel"
+            aria-labelledby="tab-geotermica"
+            data-energy-panel="geotermica"
+            hidden
+          >
+            <h3>Energia geotermica</h3>
+            <p>
+              A energia geotermica aproveita o calor interno da Terra para aquecimento e producao de eletricidade.
+              Essa fonte pode funcionar de forma constante em regioes com potencial geotermico.
+            </p>
+            <p>
+              E pouco comum no Brasil, mas e bastante estudada no mundo por ser uma opcao limpa e estavel.
+            </p>
+            <ul class="energy-points">
+              <li>Baixa emissao de carbono na operacao.</li>
+              <li>Geracao continua em areas adequadas.</li>
+              <li>Depende de condicoes geologicas especificas.</li>
+            </ul>
+            <div class="energy-gallery">
+              <figure>
+                <img
+                  src="https://images.unsplash.com/photo-1562602833-0f4ab2fc46e1?auto=format&fit=crop&w=900&q=80"
+                  alt="Area com vapor natural associado a calor subterraneo"
+                />
+                <figcaption>Vapor natural ligado ao calor geotermico.</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=900&q=80"
+                  alt="Instalacao industrial para aproveitamento de energia geotermica"
+                />
+                <figcaption>Estrutura de captacao de energia geotermica.</figcaption>
+              </figure>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -322,66 +405,80 @@
         <div class="gallery">
           <figure>
             <img
-              src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=900&q=80"
-              alt="Campo com varias turbinas eolicas"
+              src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=900&q=80"
+              alt="Usina com paineis solares em fileiras"
             />
-            <figcaption>Parque eolico para producao de energia.</figcaption>
+            <figcaption>Usina solar com grande area de paineis.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=900&q=80"
+              alt="Parque eolico com varias turbinas"
+            />
+            <figcaption>Parque eolico para geracao de eletricidade.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80"
+              alt="Barragem de usina hidreletrica"
+            />
+            <figcaption>Geracao hidreletrica em barragem.</figcaption>
           </figure>
           <figure>
             <img
               src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=900&q=80"
-              alt="Casa com instalacao de paineis solares no telhado"
+              alt="Casa com paineis solares instalados no telhado"
             />
-            <figcaption>Paineis solares instalados em residencias.</figcaption>
+            <figcaption>Energia solar no uso residencial.</figcaption>
           </figure>
           <figure>
             <img
-              src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80"
-              alt="Barragem representando geracao de energia pela agua"
+              src="https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&w=900&q=80"
+              alt="Turbinas eolicas em area de campo aberto"
             />
-            <figcaption>Energia hidreletrica em grande escala.</figcaption>
+            <figcaption>Turbinas eolicas em funcionamento.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=80"
+              alt="Canal de agua de usina hidreletrica"
+            />
+            <figcaption>Fluxo de agua usado para mover turbinas.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1624397640148-949b1732bb0a?auto=format&fit=crop&w=900&q=80"
+              alt="Pellets de biomassa para uso energetico"
+            />
+            <figcaption>Biomassa em formato de pellets energeticos.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=900&q=80"
+              alt="Material vegetal usado na producao de biomassa"
+            />
+            <figcaption>Residuos agricolas aproveitados para energia.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1562602833-0f4ab2fc46e1?auto=format&fit=crop&w=900&q=80"
+              alt="Area com vapor natural relacionada a energia geotermica"
+            />
+            <figcaption>Exemplo de area com potencial geotermico.</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=900&q=80"
+              alt="Instalacao industrial para captacao geotermica"
+            />
+            <figcaption>Infraestrutura para aproveitar calor subterraneo.</figcaption>
           </figure>
           <figure>
             <img
               src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=80"
-              alt="Paineis solares e turbinas eolicas ao fundo"
+              alt="Painel solar com turbinas eolicas no fundo"
             />
-            <figcaption>Combinacao de fontes renovaveis em um mesmo territorio.</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80"
-              alt="Cidade com foco em energia e tecnologia"
-            />
-            <figcaption>Cidades inteligentes e consumo de energia mais eficiente.</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="https://images.unsplash.com/photo-1472141521881-95d0e87e2e39?auto=format&fit=crop&w=900&q=80"
-              alt="Rio e estrutura de usina para energia da agua"
-            />
-            <figcaption>Infraestrutura para aproveitamento de recursos hidricos.</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=900&q=80"
-              alt="Painel solar com luz do fim de tarde"
-            />
-            <figcaption>Paineis solares continuam gerando energia por muitos anos.</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="https://images.unsplash.com/photo-1498408040764-ab6eb772a145?auto=format&fit=crop&w=900&q=80"
-              alt="Turbinas eolicas vistas do alto"
-            />
-            <figcaption>Parques eolicos ajudam na transicao energetica limpa.</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80"
-              alt="Barragem e agua para geracao de energia renovavel"
-            />
-            <figcaption>Energia da agua com monitoramento ambiental continuo.</figcaption>
+            <figcaption>Combinacao de fontes renovaveis no mesmo local.</figcaption>
           </figure>
         </div>
       </div>
