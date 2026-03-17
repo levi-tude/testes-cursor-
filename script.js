@@ -3,6 +3,7 @@ const siteNav = document.getElementById("site-nav");
 const navLinks = document.querySelectorAll('.site-nav a[href^="#"]');
 const toTopButton = document.getElementById("to-top");
 const revealItems = document.querySelectorAll(".reveal");
+const energyAccordions = document.querySelectorAll(".energy-accordion");
 
 if (navToggle && siteNav) {
   navToggle.addEventListener("click", () => {
@@ -60,3 +61,13 @@ const observer = new IntersectionObserver(
 );
 
 revealItems.forEach((item) => observer.observe(item));
+
+energyAccordions.forEach((accordion) => {
+  accordion.addEventListener("toggle", () => {
+    if (!accordion.open) return;
+    energyAccordions.forEach((otherAccordion) => {
+      if (otherAccordion === accordion) return;
+      otherAccordion.open = false;
+    });
+  });
+});
