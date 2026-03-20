@@ -1,0 +1,57 @@
+Atividade 2 - Inteligencia Artificial no Mundo do Trabalho
+
+A inteligencia artificial (IA) deixou de ser tendencia e virou
+infraestrutura estrategica para empresas de diferentes setores.
+No varejo, ela antecipa demanda e melhora reposicao de estoque.
+Na industria, reduz falhas por manutencao preditiva e visao computacional.
+Na saude, apoia triagem e analise de imagens com maior agilidade.
+No setor financeiro, fortalece analise de risco e deteccao de fraude.
+Esses ganhos mostram que a IA otimiza processos e aumenta competitividade.
+
+Como case, a Amazon integra IA, robotica e analise de dados
+para acelerar separacao de pedidos e aumentar eficiencia operacional.
+O modelo evidencia ganhos em produtividade, qualidade e escalabilidade.
+Ao automatizar tarefas repetitivas, a empresa libera tempo humano
+para atividades de decisao, supervisao e melhoria continua.
+Assim, o foco do trabalho migra da execucao manual para gestao inteligente.
+
+No mercado de trabalho, o impacto ocorre em duas frentes principais.
+Algumas funcoes operacionais sao reduzidas ou redesenhadas.
+Ao mesmo tempo, crescem vagas em dados, automacao e integracao digital.
+Passam a ser exigidas habilidades tecnicas e socioemocionais.
+Entre as tecnicas: letramento de dados, IA aplicada e analise estatistica.
+Entre as humanas: pensamento critico, colaboracao e adaptabilidade.
+Logo, empregabilidade passa a depender de aprendizagem continua.
+
+As empresas tambem enfrentam desafios relevantes na implementacao.
+O primeiro desafio e a qualidade dos dados usados pelos modelos.
+O segundo e integrar IA a sistemas legados sem parar a operacao.
+O terceiro envolve custo, governanca, seguranca e privacidade.
+Ha ainda risco de vies algoritimico e baixa transparencia decisoria.
+Por isso, adotar IA exige estrategia, auditoria e responsabilidade etica.
+
+No laboratorio virtual "Machine Learning - Visita ao mercado",
+o algoritmo Apriori identifica regras de associacao entre produtos.
+As metricas centrais sao suporte, confianca e lift.
+Suporte mede frequencia de um conjunto de itens nas transacoes.
+Confianca mede a probabilidade de compra conjunta condicional.
+Lift compara a regra com o acaso; acima de 1 indica associacao util.
+Essas metricas apoiam promocoes combinadas, layout de loja
+e recomendacoes de compra com base em padroes reais.
+
+Conclui-se que a IA transforma processos, perfis profissionais e gestao.
+Empresas que combinam tecnologia com capacitacao colhem melhores resultados.
+Profissionais que desenvolvem competencia digital e visao critica
+mantem relevancia e ampliam oportunidades na economia digital.
+
+Link do case analisado:
+https://www.aboutamazon.com/news/operations/how-amazon-deploys-robots-in-its-operations-facilities
+
+Referencias:
+AKABANE, Getulio K. Inovacao, tecnologia e sustentabilidade.
+Sao Paulo: Erica, 2020.
+FREIRE, E.; BATISTA, S. S. S. Sociedade e tecnologia na era digital.
+Sao Paulo: Erica, 2014.
+GUEVARA, Arnoldo Jose de Hoyos; ROSINI, Alessandro Marco.
+Tecnologias emergentes: organizacoes e educacao. Sao Paulo:
+Cengage Learning, 2008.
